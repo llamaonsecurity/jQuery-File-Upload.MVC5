@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<!-- blueimp File Upload & Gallery styles -->
+@Styles.Render("~/Content/jQuery-File-Upload")
+
+
+<script>
+    var $form = null;
+    $(function () {
+
+        $form = $('#fileupload').fileupload({
+            dataType: 'json'
+        });
+
+    });
+    $('#fileupload').addClass('fileupload-processing');
+ 
+
+
+    $.ajax({
+         type: 'GET',
+        contentType: "application/json; charset=utf-8",
+        url: '/FileUpload/GetFileList',
+        success: function (data) {
+
+
+            $('#fileupload').fileupload('option', 'done').call($('#fileupload'), $.Event('done'), { result: { files: data.files } })
+            $('#fileupload').removeClass('fileupload-processing');
+        }
+
+    }
+
+    );
+</script>
+
+@Html.Partial("_Files")
+
+@Scripts.Render("~/bundles/jQuery-File-Upload")
