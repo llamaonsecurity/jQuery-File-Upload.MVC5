@@ -1,4 +1,5 @@
 ﻿using jQuery_File_Upload.MVC5.Helpers;
+using jQuery_File_Upload.MVC5.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,7 +34,13 @@ namespace jQuery_File_Upload.MVC5.Controllers
         }
         public ActionResult Show()
         {
-            return View();
+            JsonFiles ListOfFiles = filesHelper.GetFileList();
+            var model = new FilesViewModel()
+            {
+                Files = ListOfFiles.files
+            };
+          
+            return View(model);
         }
 
         public ActionResult Edit()
@@ -67,7 +74,7 @@ namespace jQuery_File_Upload.MVC5.Controllers
             return Json(list,JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
-        public JsonResult Deltefile(string file)
+        public JsonResult DeleteFile(string file)
         {
             filesHelper.DeleteFile(file);
             return Json("OK", JsonRequestBehavior.AllowGet);
