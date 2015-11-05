@@ -502,6 +502,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\FileUpload\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -516,7 +517,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\FileUpload\Index.cshtml" />
     <Content Include="Views\FileUpload\_Files.cshtml" />
     <Content Include="Views\FileUpload\Show.cshtml" />
     <Content Include="Views\FileUpload\Edit.cshtml" />

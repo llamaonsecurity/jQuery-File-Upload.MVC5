@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<!-- blueimp File Upload & Gallery styles -->
+@Styles.Render("~/Content/jQuery-File-Upload")
+
+@*<script>
+
+        $(function () {
+            $('#fileUpload').fileupload({
+                dataType: 'json',
+                done: function (e, data) {
+                    $.each(data.result.files, function (index, file) {
+                        $('<p/>').text(file.name).appendTo(document.body);
+                    });
+                }
+            });
+        });
+    </script>*@
+
+<script>
+    var $form = null;
+    $(function () {
+
+        $form = $('#fileupload').fileupload({
+            dataType: 'json'
+        });
+
+    });
+    $('#fileupload').addClass('fileupload-processing');
+
+</script>
+@Html.Partial("_Files")
+
+
+@Scripts.Render("~/bundles/jQuery-File-Upload")

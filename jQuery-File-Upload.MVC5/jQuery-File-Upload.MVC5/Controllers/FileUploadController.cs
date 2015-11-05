@@ -17,7 +17,6 @@ namespace jQuery_File_Upload.MVC5.Controllers
         String serverMapPath = "~/Files/somefiles/";
         private string StorageRoot
         {
-            //zdarzenia/id/
             get { return Path.Combine(HostingEnvironment.MapPath(serverMapPath)); }
         }
         private string UrlBase = "/Files/somefiles/";
