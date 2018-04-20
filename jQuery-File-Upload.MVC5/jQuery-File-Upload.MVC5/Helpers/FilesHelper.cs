@@ -58,7 +58,7 @@ namespace jQuery_File_Upload.MVC5.Helpers
             System.Diagnostics.Debug.WriteLine(System.IO.File.Exists(fullPath));
             String thumbPath = "/" + file + "80x80.jpg";
             String partThumb1 = Path.Combine(StorageRoot, "thumbs");
-            String partThumb2 = Path.Combine(partThumb1, file + "80x80.jpg");
+            String partThumb2 = Path.Combine(partThumb1, Path.GetFileNameWithoutExtension(file) + "80x80.jpg");
 
             System.Diagnostics.Debug.WriteLine(partThumb2);
             System.Diagnostics.Debug.WriteLine(System.IO.File.Exists(partThumb2));
